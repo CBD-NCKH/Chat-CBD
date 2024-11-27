@@ -35,7 +35,7 @@ async function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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', // Thay bằng API Key hợp lệ của bạn
+                'Authorization': 'Bearer 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', // Thay bằng API Key hợp lệ của bạn
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
