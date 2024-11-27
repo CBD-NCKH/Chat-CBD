@@ -6,14 +6,18 @@ body {
     background-color: #e8f8f5; /* Nền xanh bạc hà nhạt */
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Container khung chat */
 #chat-container {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    max-width: 800px; /* Giữ nguyên kích thước tối đa */
+    height: 80%; /* Giữ nguyên chiều cao */
     background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -84,8 +88,10 @@ body {
     font-size: 1.1rem;
     border: none; /* Xóa viền */
     border-radius: 0; /* Xóa bo góc */
-    outline: none;
+    outline: none; /* Xóa viền khi chọn */
     background-color: #ffffff; /* Màu nền trắng */
+    color: #333; /* Màu chữ */
+    box-shadow: none; /* Xóa bất kỳ hiệu ứng nổi nào */
 }
 
 #send-button {
