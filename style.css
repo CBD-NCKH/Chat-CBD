@@ -31,19 +31,23 @@ body {
     position: relative; /* Để định vị welcome-message */
 }
 
-/* Chữ Chat CBD */
-.chat-title {
-    font-size: 2.5rem; /* Kích thước chữ */
-    color: #27ae60; /* Xanh bạc hà đậm */
-    font-family: 'Poppins', sans-serif; /* Phông chữ */
-    text-align: center; /* Căn giữa */
-    font-weight: bold;
-    margin: 20px 0; /* Thêm khoảng cách trên dưới */
+/* Bong bóng chat Chat CBD */
+.message.chat-title {
+    background: none; /* Xóa nền */
+    border: none; /* Xóa viền */
+    box-shadow: none; /* Xóa hiệu ứng nổi */
+    padding: 0; /* Xóa khoảng cách bên trong */
+    margin: 0; /* Xóa khoảng cách bên ngoài */
+    text-align: center; /* Căn giữa chữ */
 }
 
-/* Ẩn bong bóng của chữ "Chat CBD" */
-.message.chat-title {
-    display: none; /* Ẩn luôn bong bóng này */
+/* Định dạng chữ Chat CBD */
+.message.chat-title span {
+    font-size: 2.5rem; /* Kích thước chữ lớn hơn */
+    color: #27ae60; /* Xanh bạc hà đậm */
+    font-family: 'Poppins', sans-serif; /* Phông chữ cách điệu */
+    font-weight: bold;
+    display: inline-block; /* Đảm bảo không chiếm hết dòng */
 }
 
 
