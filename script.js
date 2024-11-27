@@ -16,7 +16,7 @@ function addMessage(content, sender) {
 
 // Hàm gửi yêu cầu tới API
 async function sendMessage() {
-    const apiKey = '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'; // API Key
+    const apiKey = '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'; // API Key
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
@@ -40,7 +40,7 @@ async function sendMessage() {
                     { role: 'system', content: 'Bạn là một trợ lý AI thông minh và thân thiện.' },
                     { role: 'user', content: userMessage }
                 ],
-                max_tokens: 200,
+                max_tokens: 4000,
                 temperature: 0.7
             }),
         });
