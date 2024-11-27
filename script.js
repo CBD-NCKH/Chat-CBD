@@ -16,7 +16,7 @@ function addMessage(content, sender) {
 
 // Hàm gửi yêu cầu tới API
 async function sendMessage() {
-    const apiKey = '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'; // API Key của bạn
+    const apiKey = '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'; // API Key của bạn
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
@@ -24,7 +24,6 @@ async function sendMessage() {
     addMessage(userMessage, 'user');
     userInput.value = '';
 
-    // Gửi yêu cầu đến ChatGPT API
     try {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
@@ -43,8 +42,8 @@ async function sendMessage() {
             }),
         });
 
-        // Kiểm tra trạng thái phản hồi
         if (!response.ok) {
+            // Xử lý các mã lỗi HTTP
             if (response.status === 401) {
                 throw new Error('Lỗi 401: API Key không hợp lệ. Vui lòng kiểm tra lại API Key.');
             } else if (response.status === 429) {
@@ -55,12 +54,16 @@ async function sendMessage() {
         }
 
         const data = await response.json();
-        const botReply = data.choices[0].message.content;
 
-        // Hiển thị phản hồi của ChatGPT
-        addMessage(botReply, 'bot');
+        // Kiểm tra dữ liệu trả về có hợp lệ không
+        if (data.choices && data.choices.length > 0) {
+            const botReply = data.choices[0].message.content;
+            addMessage(botReply, 'bot');
+        } else {
+            throw new Error('API không trả về dữ liệu hợp lệ.');
+        }
     } catch (error) {
-        console.error('Chi tiết lỗi khi kết nối API:', error);
+        console.error('Chi tiết lỗi:', error);
         addMessage(error.message, 'bot'); // Hiển thị lỗi lên giao diện
     }
 }
