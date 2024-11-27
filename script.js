@@ -16,13 +16,16 @@ function addMessage(content, sender) {
 
 // Hàm gửi yêu cầu tới API
 async function sendMessage() {
-    const apiKey = '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'; // API Key của bạn
+    const apiKey = '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'; // API Key
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
     // Hiển thị tin nhắn của người dùng
     addMessage(userMessage, 'user');
     userInput.value = '';
+
+    // Vô hiệu hóa nút gửi trong khi xử lý
+    sendButton.disabled = true;
 
     try {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -65,6 +68,9 @@ async function sendMessage() {
     } catch (error) {
         console.error('Chi tiết lỗi:', error);
         addMessage(error.message, 'bot'); // Hiển thị lỗi lên giao diện
+    } finally {
+        // Kích hoạt lại nút gửi
+        sendButton.disabled = false;
     }
 }
 
