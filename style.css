@@ -38,10 +38,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.5rem; /* Tăng kích thước chữ */
+    font-size: 5rem; /* Tăng kích thước chữ */
     color: #27ae60; /* Xanh bạc hà đậm */
-    font-family: 'Segoe UI', sans-serif;
-    opacity: 0.8; /* Độ nhạt để không quá chói */
+    font-family: 'Poppins', sans-serif; /* Phông chữ cách điệu từ Google Fonts */
+    letter-spacing: 2px; /* Tăng khoảng cách giữa các chữ */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng bóng chữ */
+    opacity: 0.85; /* Nhẹ hơn để không quá chói */
     transition: opacity 0.5s ease, top 0.5s ease; /* Hiệu ứng mượt khi ẩn */
 }
 
