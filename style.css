@@ -33,12 +33,17 @@ body {
 
 /* Chữ Chat CBD */
 .chat-title {
-    font-size: 2.5rem; /* To hơn các tin nhắn khác */
+    font-size: 2.5rem; /* Kích thước chữ */
     color: #27ae60; /* Xanh bạc hà đậm */
-    font-family: 'Poppins', sans-serif; /* Phông chữ cách điệu từ Google Fonts */
+    font-family: 'Poppins', sans-serif; /* Phông chữ */
     text-align: center; /* Căn giữa */
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 20px 0; /* Thêm khoảng cách trên dưới */
+}
+
+/* Ẩn bong bóng của chữ "Chat CBD" */
+.message.chat-title {
+    display: none; /* Ẩn luôn bong bóng này */
 }
 
 
