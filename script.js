@@ -16,6 +16,7 @@ function addMessage(content, sender) {
 
 // Hàm gửi yêu cầu tới API
 async function sendMessage() {
+    const apiKey = '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'; // API Key của bạn
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
@@ -29,7 +30,7 @@ async function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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', // Thay YOUR_API_KEY bằng API Key của bạn
+                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
@@ -42,14 +43,25 @@ async function sendMessage() {
             }),
         });
 
+        // Kiểm tra trạng thái phản hồi
+        if (!response.ok) {
+            if (response.status === 401) {
+                throw new Error('Lỗi 401: API Key không hợp lệ. Vui lòng kiểm tra lại API Key.');
+            } else if (response.status === 429) {
+                throw new Error('Lỗi 429: Vượt quá giới hạn yêu cầu. Vui lòng thử lại sau.');
+            } else {
+                throw new Error(`Lỗi ${response.status}: ${response.statusText}`);
+            }
+        }
+
         const data = await response.json();
         const botReply = data.choices[0].message.content;
 
         // Hiển thị phản hồi của ChatGPT
         addMessage(botReply, 'bot');
     } catch (error) {
-        console.error('Lỗi khi kết nối API:', error);
-        addMessage('Có lỗi xảy ra, vui lòng thử lại sau.', 'bot');
+        console.error('Chi tiết lỗi khi kết nối API:', error);
+        addMessage(error.message, 'bot'); // Hiển thị lỗi lên giao diện
     }
 }
 
