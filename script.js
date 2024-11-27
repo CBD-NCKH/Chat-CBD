@@ -29,7 +29,7 @@ async function sendMessage() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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',
+                'Authorization': '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',
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo', // Chọn mô hình AI phù hợp
