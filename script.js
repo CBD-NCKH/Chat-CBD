@@ -16,7 +16,7 @@ function addMessage(content, sender) {
 
 // Hàm gửi yêu cầu tới API
 async function sendMessage() {
-    const apiKey = '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'; // API Key
+    const apiKey = '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'; // API Key
     const userMessage = userInput.value.trim();
     if (!userMessage) return;
 
